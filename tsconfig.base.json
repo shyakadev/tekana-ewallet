@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@tekana-ewallet/shared": ["libs/shared/src/index.ts"],
+      "@tekana-ewallet/shared/dto": ["libs/shared/src/lib/dto/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
