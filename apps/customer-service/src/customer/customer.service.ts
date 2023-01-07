@@ -1,18 +1,26 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { RpcException } from '@nestjs/microservices';
+import { Inject, Injectable, Logger } from '@nestjs/common';
+import { ClientKafka, RpcException } from '@nestjs/microservices';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateCustomerDto } from '@tekana-ewallet/shared/dto';
+import { CreateCustomerDto, WalletDto } from '@tekana-ewallet/shared/dto';
 import { Customer } from '@tekana-ewallet/shared/entities';
+import { kafkaTopics } from '@tekana-ewallet/shared/topics';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class CustomerService {constructor(@InjectRepository(Customer) private readonly customerRepository: Repository<Customer>){}
+export class CustomerService {
+  constructor(@InjectRepository(Customer) private readonly customerRepository: Repository<Customer>, @Inject('WALLET_SERVICE') private readonly clientKafka: ClientKafka
+  ){}
 
-createCustomer(createCustomerDto: CreateCustomerDto): void {
-    console.log(createCustomerDto)
+async createCustomer(createCustomerDto: CreateCustomerDto) {
     try {
-        const customer = this.customerRepository.create(createCustomerDto)
-        this.customerRepository.save(customer)
+        const customer = await this.customerRepository.save(createCustomerDto)
+        console.log(JSON.stringify(customer))
+        const walletDto = new WalletDto()
+        walletDto.customer = customer
+
+        if(customer) this.clientKafka.emit(kafkaTopics.createWallet, JSON.stringify(walletDto))
+
+        return {message: `Customer ${customer.fullName} registered successfully`}
     } catch (error) {
         throw new RpcException(`${error}`)
     }

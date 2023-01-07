@@ -11,7 +11,7 @@ import { CustomerController } from './customer.controller';
         transport: Transport.KAFKA,
         options: {
           client: {
-            clientId: 'customer',
+            clientId: 'customer-gateway',
             brokers: ['localhost:9092'],
           },
           consumer: {

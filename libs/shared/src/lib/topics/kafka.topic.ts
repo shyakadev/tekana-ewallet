@@ -1,6 +1,6 @@
 export enum kafkaTopics {
-    createUser = 'create_user',
-    getUser = 'get_user',
+    createWallet = 'create_wallet',
+    getWallet = 'get_wallet',
     createCustomer = 'create_customer',
     getCustomer = 'get_customer',
     createTransaction = 'create_transaction',
