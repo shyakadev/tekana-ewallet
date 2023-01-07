@@ -8,6 +8,10 @@ export class CustomerService {
     constructor(@Inject('CUSTOMER_SERVICE') private readonly clientKafka: ClientKafka){}
 
     createCustomer(createCustomerDto: CreateCustomerDto) {
-        this.clientKafka.emit(kafkaTopics.createCustomer, JSON.stringify(createCustomerDto))
+        return this.clientKafka.send(kafkaTopics.createCustomer, JSON.stringify(createCustomerDto))
+    }
+
+    getCustomer(id: string) {
+        return this.clientKafka.send(kafkaTopics.getCustomer, id)
     }
 }
