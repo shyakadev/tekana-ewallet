@@ -16,7 +16,14 @@
     "baseUrl": ".",
     "paths": {
       "@tekana-ewallet/shared": ["libs/shared/src/index.ts"],
-      "@tekana-ewallet/shared/dto": ["libs/shared/src/lib/dto/index.ts"]
+      "@tekana-ewallet/shared/dto": ["libs/shared/src/lib/dto/index.ts"],
+      "@tekana-ewallet/shared/entities": [
+        "libs/shared/src/lib/entities/index.ts"
+      ],
+      "@tekana-ewallet/shared/filters": [
+        "libs/shared/src/lib/filters/index.ts"
+      ],
+      "@tekana-ewallet/shared/topics": ["libs/shared/src/lib/topics/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
