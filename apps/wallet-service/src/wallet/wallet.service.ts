@@ -14,13 +14,12 @@ export class WalletService {
         console.log(`Wallet successfully Created`)
     }
 
-    async getWallet(customerId: string): Promise<Partial<Wallet>> {
+    async getWallet(customer: object): Promise<Partial<Wallet>> {
         try {
-            const wallet = await this.walletRepository.createQueryBuilder("wallet").where("wallet.customerId= :customerId", {customerId}).getOne()
-
+            const wallet = await this.walletRepository.findOne(customer)
             if(wallet) return wallet
             
-            throw new RpcException(`Customer Id: ${customerId} not found`)
+            throw new RpcException(`Customer Id: ${customer} not found`)
         } catch (error) {
             Logger.error(error)
         }

@@ -15,7 +15,7 @@ import { WalletService } from './wallet.service';
           options: {
             client: {
               clientId: 'wallet',
-              brokers: ['localhost:9092'],
+              brokers: ['kafka:9092'],
             },
             consumer: {
               groupId: 'wallet-consumer',
