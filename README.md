@@ -34,7 +34,17 @@ Rebuild from scratch a back-end solution for a legacy platform that serve 1 mill
   - **Event Bus**: Kafka 
   - **Database**: Postgres
 
-# Database Diagram
+> **Api Gateway Documentation Link**: [host]:[port]/api
 
+> eg: http://localhost:3333/api
+
+# Features
+  - [x] Customer
+  - [X] Wallet
+  - [ ] Transaction
+
+# Database Diagram
+  ![image info](./assets/system-diagrams/tekana-ewallet.drawio.png)
 # System Design 
+  ![image info](assets/system-diagrams/tekana-ewallet-dbdiagram.png)
 
