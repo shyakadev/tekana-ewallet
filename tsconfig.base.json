@@ -23,7 +23,9 @@
       "@tekana-ewallet/shared/filters": [
         "libs/shared/src/lib/filters/index.ts"
       ],
-      "@tekana-ewallet/shared/topics": ["libs/shared/src/lib/topics/index.ts"]
+      "@tekana-ewallet/shared/topics": ["libs/shared/src/lib/topics/index.ts"],
+      "@tekana-ewallet/shared/utils": ["libs/shared/src/lib/utils/index.ts"],
+      "@tekana-ewallet/shared/constants": ["libs/shared/src/lib/constants/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
