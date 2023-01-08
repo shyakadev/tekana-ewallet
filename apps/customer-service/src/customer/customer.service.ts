@@ -14,7 +14,6 @@ export class CustomerService {
 async createCustomer(createCustomerDto: CreateCustomerDto) {
     try {
         const customer = await this.customerRepository.save(createCustomerDto)
-        console.log(JSON.stringify(customer))
         const walletDto = new WalletDto()
         walletDto.customer = customer
 
