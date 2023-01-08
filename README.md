@@ -43,8 +43,9 @@ Rebuild from scratch a back-end solution for a legacy platform that serve 1 mill
   - [X] Wallet
   - [ ] Transaction
 
-# Database Diagram
-  ![image info](./assets/system-diagrams/tekana-ewallet.drawio.png)
-# System Design 
+# Database Diagram 
   ![image info](assets/system-diagrams/tekana-ewallet-dbdiagram.png)
+    
+# System Design
+  ![image info](./assets/system-diagrams/tekana-ewallet.drawio.png)
 
