@@ -44,6 +44,12 @@ Rebuild from scratch a back-end solution for a legacy platform that serve 1 mill
   - [X] Wallet
   - [ ] Transaction
 
+# How to run
+  > **Note:** Before running docker has to be installed, if installed set the .env file and run the command below
+``` 
+  > docker-compose up
+```
+
 # Database Diagram 
   ![image info](assets/system-diagrams/tekana-ewallet-dbdiagram.png)
 
