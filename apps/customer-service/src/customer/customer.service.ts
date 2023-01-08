@@ -20,7 +20,7 @@ async createCustomer(createCustomerDto: CreateCustomerDto) {
 
         if(customer) this.clientKafka.emit(kafkaTopics.createWallet, JSON.stringify(walletDto))
 
-        return {message: `Customer ${customer.fullName} registered successfully`}
+        return {message: `Customer ${customer.fullName} registered successfully with this Id: ${customer.id}`}
     } catch (error) {
         throw new RpcException(`${error}`)
     }
